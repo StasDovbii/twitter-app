@@ -6,6 +6,6 @@ export interface IPostsParams {
 }
 
 export interface IPost {
-  title: string;
   id: number | string;
+  body: string;
 }

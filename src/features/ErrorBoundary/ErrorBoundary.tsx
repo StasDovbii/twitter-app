@@ -22,10 +22,12 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, State> {
 
   render() {
     if (this.state.hasError) {
-      <div className={styles.wrapper}>
-        <span>Something went wrong!</span>
-        <span>Please, reload the page</span>
-      </div>;
+      return (
+        <div className={styles.wrapper}>
+          <span>Something went wrong!</span>
+          <span>Please, reload the page</span>
+        </div>
+      );
     }
 
     return this.props.children;

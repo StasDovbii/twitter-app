@@ -24,17 +24,23 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 }) => {
   const [isHover, setIsHover] = useState(false);
 
+  const handleClick = (event: React.SyntheticEvent) => {
+    if (!disabled && !loading) {
+      onClick(event);
+    }
+  };
+
   return (
     <div
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
-      className={classNames(styles.wrapper, className, { [styles.disabled]: disabled || loading })}
+      className={classNames(styles.wrapper, className)}
       style={innerStyles}
     >
       {loading ? (
         <CustomSpinner />
       ) : (
-        <button className={styles.button} onClick={onClick}>
+        <button className={classNames(styles.button, { [styles.disabled]: disabled || loading })} onClick={handleClick}>
           {label}
         </button>
       )}

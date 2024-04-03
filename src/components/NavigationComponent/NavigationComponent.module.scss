@@ -1,0 +1,52 @@
+@import '../../utils/variables';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 32px;
+  position: sticky;
+  background: rgba(255, 255, 255, 0.9);
+  top: 0;
+  border-bottom: 1px solid $primary_border;
+  font-family: $primary_font;
+
+  position: relative;
+}
+
+.button {
+  display: flex;
+  align-self: center;
+  padding: 0 16px;
+  cursor: pointer;
+  font-size: 18px;
+  min-width: 100px;
+  justify-content: center;
+
+  &:hover {
+    background: $primary_background;
+  }
+}
+
+.buttonInfo {
+  position: relative;
+  padding: 12px 0;
+}
+
+.buttonLine {
+  height: 3px;
+  background: transparent;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.buttonLineSelected {
+  background: $primary;
+}
+
+.themeToggle {
+  position: absolute;
+  right: 0;
+}

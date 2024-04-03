@@ -1,0 +1,17 @@
+@import '../../utils/variables';
+
+.input {
+  font-family: $primary_font;
+  border-radius: 8px;
+  border: 1px solid $secondary_border;
+  width: 140px;
+  font-size: 15px;
+  padding: 12px 16px;
+  color: $primary_text_color;
+
+  outline: none;
+
+  &:focus {
+    border: 1px solid $primary_border;
+  }
+}

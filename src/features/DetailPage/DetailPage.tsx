@@ -8,8 +8,13 @@ type Params = {
   postId: string;
 };
 
+interface IDetails {
+  body: string;
+  id: string | number;
+}
+
 const DetailPage = () => {
-  const [details, setDetails] = useState({ title: '' });
+  const [details, setDetails] = useState<IDetails>({ body: '', id: '' });
   const [isLoading, setIsLoading] = useState(true);
 
   const { postId = '' } = useParams<Params>();
@@ -18,7 +23,7 @@ const DetailPage = () => {
   useEffect(() => {
     const getPostDetails = async () => {
       try {
-        const result: any = await PostsService.getPost(postId);
+        const result: IDetails = await PostsService.getPost(postId);
         setDetails(result);
       } catch (err) {
         console.log(err);
@@ -33,13 +38,17 @@ const DetailPage = () => {
     }
   }, [postId]);
 
-  if (isLoading) {
-    return <CustomSpinner />;
-  }
-
   return (
     <div className={styles.wrapper}>
-      Post {postId} {details.title}
+      <span className={styles.title}>Post details</span>
+      {isLoading ? (
+        <CustomSpinner />
+      ) : (
+        <div className={styles.postItem}>
+          <span className={styles.postNumber}>Post {details.id}</span>
+          <span className={styles.postText}>{details.body}</span>
+        </div>
+      )}
     </div>
   );
 };

@@ -8,6 +8,7 @@ type CustomInputProps = {
   innerStyles?: Object;
   className?: string;
   disabled?: boolean;
+  maxLength?: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -17,9 +18,19 @@ const CustomInput: React.FC<CustomInputProps> = ({
   innerStyles = {},
   className = '',
   disabled = false,
+  maxLength = 200,
   onChange,
 }) => {
-  return <input className={classNames(styles.textarea, { [styles.disabled]: disabled })} onChange={onChange} />;
+  return (
+    <input
+      placeholder={placeholder}
+      value={text}
+      style={innerStyles}
+      maxLength={maxLength}
+      className={classNames(styles.input, className, { [styles.disabled]: disabled })}
+      onChange={onChange}
+    />
+  );
 };
 
 export default CustomInput;

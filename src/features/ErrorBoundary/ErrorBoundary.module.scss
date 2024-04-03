@@ -1,8 +1,12 @@
+@import '../../utils/variables';
+
 .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  font-family: 'Montserrat';
+  font-family: $primary_font;
   font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+  height: 100vh;
 }

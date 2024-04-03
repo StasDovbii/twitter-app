@@ -28,12 +28,13 @@ const HomePage = () => {
 
   return (
     <div className={styles.wrapper}>
-      <span>Home page</span>
+      <span className={styles.title}>Home page</span>
       <div className={styles.postsList}>
         {posts.map((post: any) => (
-          <span onClick={() => handleOpenDetails(post.id)} key={post.id}>
-            {post.title}
-          </span>
+          <div className={styles.postItem} onClick={() => handleOpenDetails(post.id)} key={post.id}>
+            <span className={styles.postNumber}>Post {post.id}</span>
+            <span className={styles.postText}>{post.body}</span>
+          </div>
         ))}
         {isLoading && <CustomSpinner />}
       </div>
