@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { ThemeContextProvider } from './context/ThemeContext';
+import DetailPage from './features/DetailPage/DetailPage';
+import ErrorBoundary from './features/ErrorBoundary/ErrorBoundary';
+import HomePage from './features/HomePage/HomePage';
+import LoginPage from './features/LoginPage/LoginPage';
+import NotFoundPage from './features/NotFoundPage/NotFoundPage';
+import SettingsPage from './features/SettingsPage/SettingsPage';
+import ProtectedRoutes from './routes/ProtectedRoutes';
 
-function App() {
+const App = () => {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Navigate to="home" />,
+    },
+    {
+      path: 'login',
+      element: <LoginPage />,
+    },
+    {
+      path: '*',
+      element: <NotFoundPage />,
+    },
+    {
+      element: <ProtectedRoutes />,
+      children: [
+        {
+          path: 'home',
+          element: <HomePage />,
+        },
+        {
+          path: 'posts/:postId',
+          element: <DetailPage />,
+        },
+        {
+          path: 'settings',
+          element: <SettingsPage />,
+        },
+      ],
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContextProvider>
+      <ErrorBoundary>
+        <RouterProvider router={router} />
+      </ErrorBoundary>
+    </ThemeContextProvider>
   );
-}
+};
 
 export default App;
