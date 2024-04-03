@@ -1,8 +1,11 @@
 import React from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { ThemeContextProvider } from './context/ThemeContext';
 import DetailPage from './features/DetailPage/DetailPage';
+import ErrorBoundary from './features/ErrorBoundary/ErrorBoundary';
 import HomePage from './features/HomePage/HomePage';
 import LoginPage from './features/LoginPage/LoginPage';
+import NotFoundPage from './features/NotFoundPage/NotFoundPage';
 import ProtectedRoutes from './routes/ProtectedRoutes';
 
 const App = () => {
@@ -14,6 +17,10 @@ const App = () => {
     {
       path: 'login',
       element: <LoginPage />,
+    },
+    {
+      path: '*',
+      element: <NotFoundPage />,
     },
     {
       element: <ProtectedRoutes />,
@@ -31,10 +38,11 @@ const App = () => {
   ]);
 
   return (
-    <div>
-      <nav>Opa</nav>
-      <RouterProvider router={router} />
-    </div>
+    <ThemeContextProvider>
+      <ErrorBoundary>
+        <RouterProvider router={router} />
+      </ErrorBoundary>
+    </ThemeContextProvider>
   );
 };
 

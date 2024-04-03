@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PostsService from '../../api/PostsService';
 import CustomSpinner from '../../components/CustomSpinner/CustomSpinner';
+import styles from './DetailPage.module.scss';
 
 type Params = {
   postId: string;
@@ -37,7 +38,7 @@ const DetailPage = () => {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       Post {postId} {details.title}
     </div>
   );

@@ -27,7 +27,7 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <span>Home page</span>
       <div className={styles.postsList}>
         {posts.map((post: any) => (

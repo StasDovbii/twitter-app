@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import CustomSpinner from '../../components/CustomSpinner/CustomSpinner';
 import CustomInput from '../../components/CustomInput/CustomInput';
+import styles from './LoginPage.module.scss';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -58,7 +59,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <span>Enter a username</span>
       <form onSubmit={handleLogin}>
         <CustomInput text={username} onChange={handleChangeUsername} />
