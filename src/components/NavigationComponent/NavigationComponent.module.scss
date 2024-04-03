@@ -11,8 +11,6 @@
   top: 0;
   border-bottom: 1px solid $primary_border;
   font-family: $primary_font;
-
-  position: relative;
 }
 
 .button {
@@ -44,9 +42,4 @@
 
 .buttonLineSelected {
   background: $primary;
-}
-
-.themeToggle {
-  position: absolute;
-  right: 0;
 }

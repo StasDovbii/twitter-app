@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './NavigationComponent.module.scss';
 import classNames from 'classnames';
-import { ThemeContext } from '../../context/ThemeContext';
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 const NavigationComponent = () => {
   const navigate = useNavigate();
@@ -31,6 +31,7 @@ const NavigationComponent = () => {
           <div className={classNames(styles.buttonLine, { [styles.buttonLineSelected]: pathname.includes('settings') })} />
         </div>
       </div>
+      <ThemeSwitcher />
     </div>
   );
 };

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PostsService from '../../api/PostsService';
 import CustomSpinner from '../../components/CustomSpinner/CustomSpinner';
+import { ThemeContext } from '../../context/ThemeContext';
 import styles from './DetailPage.module.scss';
+import classNames from 'classnames';
 
 type Params = {
   postId: string;
@@ -17,7 +19,10 @@ const DetailPage = () => {
   const [details, setDetails] = useState<IDetails>({ body: '', id: '' });
   const [isLoading, setIsLoading] = useState(true);
 
+  const { isLight } = useContext(ThemeContext);
+
   const { postId = '' } = useParams<Params>();
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,12 +45,12 @@ const DetailPage = () => {
 
   return (
     <div className={styles.wrapper}>
-      <span className={styles.title}>Post details</span>
+      <span className={classNames(styles.title, { [styles.darkTheme]: !isLight })}>Post details</span>
       {isLoading ? (
         <CustomSpinner />
       ) : (
         <div className={styles.postItem}>
-          <span className={styles.postNumber}>Post {details.id}</span>
+          <span className={classNames(styles.postNumber, { [styles.darkTheme]: !isLight })}>Post {details.id}</span>
           <span className={styles.postText}>{details.body}</span>
         </div>
       )}

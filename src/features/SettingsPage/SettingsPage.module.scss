@@ -2,6 +2,7 @@
 
 .wrapper {
   font-family: $primary_font;
+  color: $secondary_text_color;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -31,4 +32,8 @@
 .settingInfo {
   font-family: $secondary_font;
   font-size: 18px;
+}
+
+.darkTheme {
+  color: $secondary_text_color_dark;
 }

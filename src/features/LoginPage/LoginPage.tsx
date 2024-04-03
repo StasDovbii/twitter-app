@@ -1,16 +1,19 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import CustomSpinner from '../../components/CustomSpinner/CustomSpinner';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import styles from './LoginPage.module.scss';
 import { v4 as uuidv4 } from 'uuid';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const MAX_USERNAME_SYMBOLS = 20;
 
 const LoginPage = () => {
   const [username, setUsername] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const { resetTheme } = useContext(ThemeContext);
 
   const navigate = useNavigate();
 
@@ -63,6 +66,8 @@ const LoginPage = () => {
 
       setIsLoading(false);
     };
+
+    resetTheme();
 
     checkUser();
   }, []);
