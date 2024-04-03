@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './CustomInput.module.scss';
 import classNames from 'classnames';
 
-type CustomInputProps = {
+interface CustomInputProps {
   placeholder?: string;
   text: string;
   innerStyles?: Object;
@@ -10,7 +10,7 @@ type CustomInputProps = {
   disabled?: boolean;
   maxLength?: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
 const CustomInput: React.FC<CustomInputProps> = ({
   placeholder = 'Enter text...',

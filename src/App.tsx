@@ -1,4 +1,3 @@
-import React from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import { ThemeContextProvider } from './context/ThemeContext';
 import DetailPage from './features/DetailPage/DetailPage';

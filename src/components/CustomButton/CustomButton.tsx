@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './CustomButton.module.scss';
 import CustomSpinner from '../CustomSpinner/CustomSpinner';
 
-type CustomButtonProps = {
+interface CustomButtonProps {
   className?: string;
   innerStyles?: Object;
   label?: string;
@@ -11,7 +11,7 @@ type CustomButtonProps = {
   tooltipText?: string;
   loading?: boolean;
   onClick: (event: React.SyntheticEvent) => void;
-};
+}
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   label = '',
@@ -22,7 +22,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   loading = false,
   onClick,
 }) => {
-  const [isHover, setIsHover] = useState(false);
+  const [isHover, setIsHover] = useState<boolean>(false);
 
   const handleClick = (event: React.SyntheticEvent) => {
     if (!disabled && !loading) {

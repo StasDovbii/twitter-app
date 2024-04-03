@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 
 type themeType = 'light' | 'dark';
 
-interface ThemeContextType {
+interface IThemeContext {
   isLight: boolean;
   theme: string;
   toggleTheme: () => void;
@@ -14,7 +14,7 @@ interface ThemeContextProviderProps {
   children: React.ReactNode;
 }
 
-export const ThemeContext = createContext<ThemeContextType>({
+export const ThemeContext = createContext<IThemeContext>({
   isLight: true,
   theme: 'light',
   toggleTheme: () => {},
@@ -25,7 +25,7 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({ chil
   const [theme, setTheme] = useState<themeType>('light');
 
   useEffect(() => {
-    const rootElement = document.getElementById('root');
+    const rootElement = document.getElementById('root') as HTMLElement;
 
     if (rootElement) {
       if (theme === 'light') {

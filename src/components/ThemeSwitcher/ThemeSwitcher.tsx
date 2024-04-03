@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import styles from './ThemeSwitcher.module.scss';
 import classNames from 'classnames';
 import { ThemeContext } from '../../context/ThemeContext';

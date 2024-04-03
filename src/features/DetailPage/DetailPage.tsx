@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PostsService from '../../api/PostsService';
 import CustomSpinner from '../../components/CustomSpinner/CustomSpinner';
@@ -17,7 +17,7 @@ interface IDetails {
 
 const DetailPage = () => {
   const [details, setDetails] = useState<IDetails>({ body: '', id: '' });
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const { isLight } = useContext(ThemeContext);
 

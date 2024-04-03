@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PostsService from '../../api/PostsService';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';

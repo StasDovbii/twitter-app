@@ -25,7 +25,7 @@ const LoginPage = () => {
     }
 
     return '';
-  }, [isUsernameValid]);
+  }, [isUsernameValid, username]);
 
   const handleChangeUsername = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const newUsername = event.currentTarget.value.trim();
@@ -43,7 +43,7 @@ const LoginPage = () => {
       localStorage.setItem('userInfo', JSON.stringify({ username, id: uuidv4() }));
       navigate('/home');
     },
-    [username],
+    [username, isUsernameValid],
   );
 
   useEffect(() => {

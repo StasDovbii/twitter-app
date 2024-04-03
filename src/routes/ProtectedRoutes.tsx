@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import NavigationComponent from '../components/NavigationComponent/NavigationComponent';
 

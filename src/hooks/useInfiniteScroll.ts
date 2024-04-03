@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { IPost, IPostsParams } from '../ts/interfaces/postsInterfaces';
 
 interface IInfiniteScrollProps {
@@ -38,7 +38,7 @@ const useInfiniteScroll = ({ onLoadMore, dataField = '' }: IInfiniteScrollProps)
     }
 
     setIsLoading(false);
-  }, [query]);
+  }, [query, dataField, onLoadMore]);
 
   useEffect(() => {
     const handleScroll = () => {
